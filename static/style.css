@@ -1,0 +1,204 @@
+/* ================================
+   Theme variables (CSS custom props)
+   ================================ */
+:root {
+    --primary-color: #8d26ff;
+    --primary-hover: #6d1cc9;
+    --background-color: #f9fafb;
+    --card-color: #ffffff;
+    --border-color: #e5e7eb;
+    --text-color: #111827;
+    --input-border: #d1d5db;
+    --disclaimer-red: #dc2626;
+}
+
+/* ===============
+   Base styling
+   =============== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* ========================
+   Header and branding
+   ======================== */
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    height: 60px;
+    object-fit: contain; /* Ensures logo scales without distortion */
+}
+
+/* ============================
+   Chart display area (Plotly)
+   ============================ */
+.chart-container {
+    background-color: var(--card-color);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow-x: auto; /* Allows horizontal scrolling on small screens */
+}
+
+/* ================================
+   Form layout (below chart)
+   ================================ */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.small-input {
+    text-align: center;
+}
+
+input[type="date"],
+select,
+input[type="number"] {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--text-color);
+    transition: border-color 0.2s ease-in-out;
+    min-width: 150px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(141, 38, 255, 0.2); /* Subtle focus ring for accessibility */
+}
+
+/* ===================
+   Buttons
+   =================== */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.02); /* Slight growth on hover for feedback */
+}
+
+button:active {
+    transform: scale(0.98); /* Slight shrink on press for realism */
+}
+
+.submit-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.run-strategy-button.large-centered {
+    padding: 14px 28px;
+    font-size: 16px;
+    min-width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+.positions-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =======================
+   Loading spinner states
+   ======================= */
+
+/* Hidden by default */
+.loading-hidden {
+    display: none;
+}
+
+#loading-indicator {
+    text-align: center;
+    padding: 40px;
+    font-size: 16px;
+    color: #6b7280; /* Neutral gray tone */
+}
+
+.spinner {
+    margin: 0 auto 15px;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--primary-color);
+    border-top-color: transparent; /* Creates spinning illusion */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ======================
+   Error and disclaimer
+   ====================== */
+.error-message-inside {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    border-radius: 8px;
+    padding: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.disclaimer {
+    max-width: 700px;
+    margin: 40px auto 20px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    color: #b91c1c;
+    background-color: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.disclaimer p {
+    margin-bottom: 12px;
+}
+
+.disclaimer p:last-child {
+    margin-bottom: 0;
+}
